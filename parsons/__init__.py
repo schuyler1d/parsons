@@ -8,52 +8,184 @@ import logging
 # are defined.
 
 if not os.environ.get('PARSONS_SKIP_IMPORT_ALL'):
-    from parsons.ngpvan.van import VAN
-    from parsons.targetsmart.targetsmart_api import TargetSmartAPI
-    from parsons.targetsmart.targetsmart_automation import TargetSmartAutomation
-    from parsons.databases.redshift.redshift import Redshift
-    from parsons.databases.db_sync import DBSync
-    from parsons.aws.s3 import S3
-    from parsons.civis.civisclient import CivisClient
     from parsons.etl.table import Table
-    from parsons.notifications.gmail import Gmail
-    from parsons.google.google_civic import GoogleCivic
-    from parsons.google.google_sheets import GoogleSheets
-    from parsons.google.google_cloud_storage import GoogleCloudStorage
-    from parsons.google.google_bigquery import GoogleBigQuery
-    from parsons.phone2action.p2a import Phone2Action
-    from parsons.mobilize_america.ma import MobilizeAmerica
-    from parsons.facebook_ads.facebook_ads import FacebookAds
-    from parsons.notifications.slack import Slack
-    from parsons.turbovote.turbovote import TurboVote
-    from parsons.sftp.sftp import SFTP
-    from parsons.action_kit.action_kit import ActionKit
-    from parsons.geocode.census_geocoder import CensusGeocoder
-    from parsons.airtable.airtable import Airtable
-    from parsons.copper.copper import Copper
-    from parsons.controlshift.controlshift import Controlshift
-    from parsons.crowdtangle.crowdtangle import CrowdTangle
-    from parsons.hustle.hustle import Hustle
-    from parsons.twilio.twilio import Twilio
-    from parsons.salesforce.salesforce import Salesforce
-    from parsons.databases.postgres.postgres import Postgres
-    from parsons.freshdesk.freshdesk import Freshdesk
-    from parsons.bill_com.bill_com import BillCom
-    from parsons.newmode.newmode import Newmode
-    from parsons.databases.mysql.mysql import MySQL
-    from parsons.rockthevote.rtv import RockTheVote
-    from parsons.mailchimp.mailchimp import Mailchimp
-    from parsons.zoom.zoom import Zoom
-    from parsons.action_network.action_network import ActionNetwork
-    from parsons.pdi.pdi import PDI
-    from parsons.azure.azure_blob_storage import AzureBlobStorage
-    from parsons.github.github import GitHub
-    from parsons.bloomerang.bloomerang import Bloomerang
-    from parsons.box.box import Box
-    from parsons.sisense.sisense import Sisense
-    from parsons.alchemer.alchemer import SurveyGizmo, Alchemer
-    from parsons.quickbase.quickbase import Quickbase
-    from parsons.actblue.actblue import ActBlue
+    try:
+        from parsons.ngpvan.van import VAN
+    except ImportError:
+        VAN = None
+    try:
+        from parsons.targetsmart.targetsmart_api import TargetSmartAPI
+    except ImportError:
+        TargetSmartAPI = None
+    try:
+        from parsons.targetsmart.targetsmart_automation import TargetSmartAutomation
+    except ImportError:
+        TargetSmartAutomation = None
+    try:
+        from parsons.databases.redshift.redshift import Redshift
+    except ImportError:
+        Redshift = None
+    try:
+        from parsons.databases.db_sync import DBSync
+    except ImportError:
+        DBSync = None
+    try:
+        from parsons.aws.s3 import S3
+    except ImportError:
+        S3 = None
+    try:
+        from parsons.civis.civisclient import CivisClient
+    except ImportError:
+        CivisClient = None
+    try:
+        from parsons.notifications.gmail import Gmail
+    except ImportError:
+        Gmail = None
+    try:
+        from parsons.google.google_civic import GoogleCivic
+    except ImportError:
+        GoogleCivic = None
+    try:
+        from parsons.google.google_sheets import GoogleSheets
+    except ImportError:
+        GoogleSheets = None
+    try:
+        from parsons.google.google_cloud_storage import GoogleCloudStorage
+    except ImportError:
+        GoogleCloudStorage = None
+    try:
+        from parsons.google.google_bigquery import GoogleBigQuery
+    except ImportError:
+        GoogleBigQuery = None
+    try:
+        from parsons.phone2action.p2a import Phone2Action
+    except ImportError:
+        Phone2Action = None
+    try:
+        from parsons.mobilize_america.ma import MobilizeAmerica
+    except ImportError:
+        MobilizeAmerica = None
+    try:
+        from parsons.facebook_ads.facebook_ads import FacebookAds
+    except ImportError:
+        FacebookAds = None
+    try:
+        from parsons.notifications.slack import Slack
+    except ImportError:
+        Slack = None
+    try:
+        from parsons.turbovote.turbovote import TurboVote
+    except ImportError:
+        TurboVote = None
+    try:
+        from parsons.sftp.sftp import SFTP
+    except ImportError:
+        SFTP = None
+    try:
+        from parsons.action_kit.action_kit import ActionKit
+    except ImportError:
+        ActionKit = None
+    try:
+        from parsons.geocode.census_geocoder import CensusGeocoder
+    except ImportError:
+        CensusGeocoder = None
+    try:
+        from parsons.airtable.airtable import Airtable
+    except ImportError:
+        Airtable = None
+    try:
+        from parsons.copper.copper import Copper
+    except ImportError:
+        Copper = None
+    try:
+        from parsons.crowdtangle.crowdtangle import CrowdTangle
+    except ImportError:
+        CrowdTangle = None
+    try:
+        from parsons.hustle.hustle import Hustle
+    except ImportError:
+        Hustle = None
+    try:
+        from parsons.twilio.twilio import Twilio
+    except ImportError:
+        Twilio = None
+    try:
+        from parsons.salesforce.salesforce import Salesforce
+    except ImportError:
+        Salesforce = None
+    try:
+        from parsons.databases.postgres.postgres import Postgres
+    except ImportError:
+        Postgres = None
+    try:
+        from parsons.freshdesk.freshdesk import Freshdesk
+    except ImportError:
+        Freshdesk = None
+    try:
+        from parsons.bill_com.bill_com import BillCom
+    except ImportError:
+        BillCom = None
+    try:
+        from parsons.newmode.newmode import Newmode
+    except ImportError:
+        Newmode = None
+    try:
+        from parsons.databases.mysql.mysql import MySQL
+    except ImportError:
+        MySQL = None
+    try:
+        from parsons.rockthevote.rtv import RockTheVote
+    except ImportError:
+        RockTheVote = None
+    try:
+        from parsons.mailchimp.mailchimp import Mailchimp
+    except ImportError:
+        Mailchimp = None
+    try:
+        from parsons.zoom.zoom import Zoom
+    except ImportError:
+        Zoom = None
+    try:
+        from parsons.action_network.action_network import ActionNetwork
+    except ImportError:
+        ActionNetwork = None
+    try:
+        from parsons.pdi.pdi import PDI
+    except ImportError:
+        PDI = None
+    try:
+        from parsons.azure.azure_blob_storage import AzureBlobStorage
+    except ImportError:
+        AzureBlobStorage = None
+    try:
+        from parsons.github.github import GitHub
+    except ImportError:
+        GitHub = None
+    try:
+        from parsons.bloomerang.bloomerang import Bloomerang
+    except ImportError:
+        Bloomerang = None
+    try:
+        from parsons.box.box import Box
+    except ImportError:
+        Box = None
+    try:
+        from parsons.sisense.sisense import Sisense
+    except ImportError:
+        Sisense = None
+    try:
+        from parsons.alchemer.alchemer import SurveyGizmo, Alchemer
+    except ImportError:
+        SurveyGizmo = None
+        Alchemer = None
+    try:
+        from parsons.quickbase.quickbase import Quickbase
+    except ImportError:
+        Quickbase = None
+    try:
+        from parsons.actblue.actblue import ActBlue
+    except ImportError:
+        ActBlue = None
 
     __all__ = [
         'VAN',
